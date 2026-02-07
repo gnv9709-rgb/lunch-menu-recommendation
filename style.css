@@ -315,6 +315,108 @@ button {
     font-size: 1rem;
 }
 
+/* 기분 적합도 점수 영역 */
+.mood-score-section {
+    /* 상단 여백 */
+    margin-top: 1rem;
+    /* 하단 여백 */
+    margin-bottom: 1rem;
+    /* 내부 여백 */
+    padding: 0.75rem;
+    /* 배경색 (연한 주황색) */
+    background: #fff8f4;
+    /* 모서리 둥글게 */
+    border-radius: 10px;
+}
+
+/* 기분 적합도 텍스트 */
+.mood-score-text {
+    /* 글자 크기 */
+    font-size: 0.9rem;
+    /* 글자 굵기 */
+    font-weight: 600;
+    /* 글자 색상 */
+    color: #ff6b35;
+    /* 블록으로 표시 */
+    display: block;
+    /* 하단 여백 */
+    margin-bottom: 0.5rem;
+}
+
+/* 기분 적합도 게이지 바 배경 */
+.mood-gauge {
+    /* 높이 */
+    height: 8px;
+    /* 배경색 (연한 회색) */
+    background: #e0e0e0;
+    /* 모서리 둥글게 */
+    border-radius: 4px;
+    /* 내부 넘침 숨기기 */
+    overflow: hidden;
+}
+
+/* 기분 적합도 게이지 바 채움 */
+.mood-gauge-fill {
+    /* 높이 */
+    height: 100%;
+    /* 그라데이션 배경 (주황색 계열) */
+    background: linear-gradient(90deg, #ff6b35, #ff8c42);
+    /* 모서리 둥글게 */
+    border-radius: 4px;
+    /* 부드러운 너비 변화 애니메이션 */
+    transition: width 0.8s ease;
+    /* 초기 너비 0 */
+    width: 0%;
+}
+
+/* 상세 추천 근거 영역 */
+.detailed-reason-section {
+    /* 상단 여백 */
+    margin-top: 1rem;
+    /* 내부 여백 */
+    padding: 1rem;
+    /* 배경색 (연한 파란색) */
+    background: #f0f4ff;
+    /* 모서리 둥글게 */
+    border-radius: 10px;
+    /* 왼쪽 강조 테두리 */
+    border-left: 4px solid #ff6b35;
+}
+
+/* 상세 근거 제목 */
+.detailed-reason-section h5 {
+    /* 글자 크기 */
+    font-size: 0.95rem;
+    /* 글자 색상 */
+    color: #555;
+    /* 하단 여백 */
+    margin-bottom: 0.5rem;
+    /* 글자 굵기 */
+    font-weight: 600;
+}
+
+/* 상세 근거 텍스트 */
+.detailed-reason-text {
+    /* 글자 크기 */
+    font-size: 0.95rem;
+    /* 글자 색상 */
+    color: #333;
+    /* 줄 간격 */
+    line-height: 1.7;
+}
+
+/* 최근 음식 회피 메시지 */
+.avoid-message {
+    /* 상단 여백 */
+    margin-top: 0.75rem;
+    /* 글자 크기 */
+    font-size: 0.85rem;
+    /* 글자 색상 (초록 계열) */
+    color: #4a9e6e;
+    /* 글자 스타일 (기울임) */
+    font-style: italic;
+}
+
 /* 푸터 영역 */
 footer {
     /* 중앙 정렬 */

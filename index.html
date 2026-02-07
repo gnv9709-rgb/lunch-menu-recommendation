@@ -70,7 +70,25 @@
                 <!-- 추천 이유 설명 -->
                 <div class="reason-box">
                     <h4>추천 이유</h4>
+                    <!-- 한 줄 요약 메시지 -->
                     <p id="recommendReason"></p>
+
+                    <!-- 기분 적합도 점수와 게이지 바 -->
+                    <div class="mood-score-section">
+                        <span id="moodScore" class="mood-score-text"></span>
+                        <div class="mood-gauge">
+                            <div id="moodGaugeFill" class="mood-gauge-fill"></div>
+                        </div>
+                    </div>
+
+                    <!-- 기분 기반 상세 추천 근거 -->
+                    <div class="detailed-reason-section">
+                        <h5>왜 이 메뉴일까요?</h5>
+                        <p id="detailedReason" class="detailed-reason-text"></p>
+                    </div>
+
+                    <!-- 최근 음식 회피 메시지 -->
+                    <p id="avoidMessage" class="avoid-message hidden"></p>
                 </div>
 
                 <!-- 다시 추천받기 버튼 -->

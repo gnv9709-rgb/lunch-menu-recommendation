@@ -8,42 +8,277 @@
  */
 const menuDatabase = [
     // 한식 메뉴
-    { name: '김치찌개', category: '한식', great: 8, good: 9, normal: 8, tired: 7, bad: 9 },
-    { name: '된장찌개', category: '한식', great: 7, good: 8, normal: 9, tired: 8, bad: 8 },
-    { name: '불고기', category: '한식', great: 10, good: 9, normal: 7, tired: 6, bad: 5 },
-    { name: '비빔밥', category: '한식', great: 9, good: 10, normal: 9, tired: 7, bad: 6 },
-    { name: '삼겹살', category: '한식', great: 10, good: 9, normal: 6, tired: 5, bad: 4 },
-    { name: '갈비탕', category: '한식', great: 8, good: 8, normal: 7, tired: 9, bad: 8 },
-    { name: '냉면', category: '한식', great: 9, good: 10, normal: 8, tired: 7, bad: 6 },
+    {
+        name: '김치찌개', category: '한식', great: 8, good: 9, normal: 8, tired: 7, bad: 9,
+        // 기분별 추천 근거: 왜 이 기분일 때 이 메뉴가 좋은지 설명
+        moodReasons: {
+            great: '기분 좋은 날, 얼큰한 김치찌개의 깊은 맛이 행복감을 더해줍니다.',
+            good: '잘 익은 김치의 감칠맛이 좋은 기분을 유지시켜주는 든든한 한 끼입니다.',
+            normal: '익숙하고 편안한 김치찌개는 평범한 하루에 안정감을 줍니다.',
+            tired: '뜨끈한 국물이 피로한 몸을 따뜻하게 감싸주어 회복에 도움을 줍니다.',
+            bad: '매콤한 김치찌개의 캡사이신 성분이 엔도르핀 분비를 촉진해 기분 전환에 효과적입니다.'
+        }
+    },
+    {
+        name: '된장찌개', category: '한식', great: 7, good: 8, normal: 9, tired: 8, bad: 8,
+        moodReasons: {
+            great: '구수한 된장의 풍미가 좋은 하루를 더 풍성하게 만들어줍니다.',
+            good: '된장의 발효 성분이 장 건강을 돕고, 편안한 식사를 제공합니다.',
+            normal: '어머니의 손맛 같은 된장찌개는 일상에서 가장 편안한 메뉴입니다.',
+            tired: '된장에 풍부한 단백질과 필수 아미노산이 피로 회복을 돕습니다.',
+            bad: '따뜻한 국물과 구수한 맛이 마음의 안정을 주는 위로의 음식(컴포트 푸드)입니다.'
+        }
+    },
+    {
+        name: '불고기', category: '한식', great: 10, good: 9, normal: 7, tired: 6, bad: 5,
+        moodReasons: {
+            great: '달콤한 양념과 부드러운 고기의 조화가 축하할 일이 있는 날에 어울립니다.',
+            good: '좋은 기분에 맞는 풍성한 한 상! 불고기의 달콤짭짤한 맛이 기분을 더 업시켜줍니다.',
+            normal: '고기의 단백질이 오후 업무에 필요한 에너지를 공급해줍니다.',
+            tired: '소고기의 철분과 아연이 피로 해소에 도움이 되지만, 소화에 에너지가 필요합니다.',
+            bad: '기분이 안 좋을 때는 소화력이 떨어질 수 있어 부담될 수 있습니다.'
+        }
+    },
+    {
+        name: '비빔밥', category: '한식', great: 9, good: 10, normal: 9, tired: 7, bad: 6,
+        moodReasons: {
+            great: '형형색색의 나물과 고추장의 조화가 기분 좋은 날의 활력을 더해줍니다.',
+            good: '다양한 채소의 비타민과 미네랄이 균형 잡힌 영양을 제공하는 완벽한 한 끼입니다.',
+            normal: '채소, 고기, 밥이 골고루 들어있어 영양 균형이 뛰어난 실용적인 메뉴입니다.',
+            tired: '여러 재료가 들어 있어 영양가가 높지만, 잘 비벼야 해서 약간의 수고가 필요합니다.',
+            bad: '기분이 좋지 않을 때는 비비는 과정이 귀찮게 느껴질 수 있습니다.'
+        }
+    },
+    {
+        name: '삼겹살', category: '한식', great: 10, good: 9, normal: 6, tired: 5, bad: 4,
+        moodReasons: {
+            great: '기분 최고인 날엔 삼겹살 파티! 고기 굽는 소리와 향이 행복감을 극대화합니다.',
+            good: '함께 구워 먹는 삼겹살은 사회적 즐거움과 맛의 만족감을 동시에 줍니다.',
+            normal: '평범한 점심엔 다소 과한 선택일 수 있지만, 든든함은 보장됩니다.',
+            tired: '피곤할 때 기름진 음식은 소화 부담이 커서 오히려 더 나른해질 수 있습니다.',
+            bad: '혼자 구워 먹기엔 번거롭고, 기름진 음식이 기분 저하를 악화시킬 수 있습니다.'
+        }
+    },
+    {
+        name: '갈비탕', category: '한식', great: 8, good: 8, normal: 7, tired: 9, bad: 8,
+        moodReasons: {
+            great: '진하게 우려낸 국물의 깊은 맛이 좋은 기분을 더 풍요롭게 해줍니다.',
+            good: '부드러운 갈비와 맑은 국물이 기분 좋은 날의 격을 높여줍니다.',
+            normal: '뜨끈한 국물 한 그릇이 평범한 점심에 따뜻한 위로를 더합니다.',
+            tired: '사골 국물의 콜라겐과 단백질이 피로 회복과 체력 보충에 탁월합니다.',
+            bad: '따뜻하고 정성이 담긴 국물 요리는 지친 마음을 달래주는 보양식입니다.'
+        }
+    },
+    {
+        name: '냉면', category: '한식', great: 9, good: 10, normal: 8, tired: 7, bad: 6,
+        moodReasons: {
+            great: '시원하고 상쾌한 냉면이 기분 좋은 날의 청량감을 더해줍니다.',
+            good: '새콤달콤한 육수와 쫄깃한 면의 조화가 좋은 기분을 유지시켜줍니다.',
+            normal: '담백한 냉면은 부담 없이 즐길 수 있는 깔끔한 한 끼입니다.',
+            tired: '차가운 음식은 소화에 에너지가 필요해 피곤할 때는 다소 부담될 수 있습니다.',
+            bad: '기분이 안 좋을 때는 따뜻한 음식이 더 위로가 될 수 있습니다.'
+        }
+    },
 
     // 중식 메뉴
-    { name: '짜장면', category: '중식', great: 9, good: 10, normal: 10, tired: 8, bad: 9 },
-    { name: '짬뽕', category: '중식', great: 8, good: 9, normal: 8, tired: 9, bad: 10 },
-    { name: '탕수육', category: '중식', great: 10, good: 9, normal: 7, tired: 6, bad: 5 },
-    { name: '볶음밥', category: '중식', great: 8, good: 9, normal: 9, tired: 8, bad: 7 },
+    {
+        name: '짜장면', category: '중식', great: 9, good: 10, normal: 10, tired: 8, bad: 9,
+        moodReasons: {
+            great: '달콤한 춘장 소스가 행복한 기분을 더욱 달콤하게 만들어줍니다.',
+            good: '남녀노소 모두가 좋아하는 짜장면! 좋은 기분에 가장 잘 어울리는 국민 메뉴입니다.',
+            normal: '어떤 날에도 실패 없는 선택! 짜장면은 언제나 만족스러운 한 끼를 보장합니다.',
+            tired: '빠르게 나오고 든든하게 먹을 수 있어 피곤할 때 효율적인 선택입니다.',
+            bad: '어릴 적 추억이 담긴 짜장면은 마음을 따뜻하게 해주는 위안의 음식입니다.'
+        }
+    },
+    {
+        name: '짬뽕', category: '중식', great: 8, good: 9, normal: 8, tired: 9, bad: 10,
+        moodReasons: {
+            great: '해산물의 시원한 맛과 매콤한 국물이 좋은 기분에 활력을 더합니다.',
+            good: '풍부한 해산물과 채소가 영양 균형을 맞춰주는 알찬 한 끼입니다.',
+            normal: '얼큰한 국물이 평범한 하루에 자극적인 맛의 변화를 줍니다.',
+            tired: '뜨끈하고 매콤한 국물이 몸을 따뜻하게 하고 혈액순환을 촉진시킵니다.',
+            bad: '매운 음식의 캡사이신이 엔도르핀을 분비시켜 스트레스 해소에 효과적입니다.'
+        }
+    },
+    {
+        name: '탕수육', category: '중식', great: 10, good: 9, normal: 7, tired: 6, bad: 5,
+        moodReasons: {
+            great: '바삭한 튀김에 새콤달콤한 소스! 축제 같은 기분에 어울리는 화려한 메뉴입니다.',
+            good: '바삭한 식감과 달콤한 소스의 조합이 기분 좋은 점심을 만들어줍니다.',
+            normal: '기름진 튀김이라 평소엔 부담될 수 있지만, 가끔은 괜찮은 선택입니다.',
+            tired: '튀김 요리는 소화에 에너지가 많이 필요해 피곤할 때는 부담이 됩니다.',
+            bad: '기분이 안 좋을 때 기름진 음식은 속을 더 불편하게 할 수 있습니다.'
+        }
+    },
+    {
+        name: '볶음밥', category: '중식', great: 8, good: 9, normal: 9, tired: 8, bad: 7,
+        moodReasons: {
+            great: '고소한 볶음밥에 다양한 재료가 어우러져 기분 좋은 한 끼를 완성합니다.',
+            good: '간편하면서도 맛있는 볶음밥이 좋은 기분을 유지시켜줍니다.',
+            normal: '빠르고 든든한 볶음밥은 평범한 점심에 가장 실용적인 선택입니다.',
+            tired: '한 그릇에 탄수화물과 단백질이 함께 들어있어 효율적인 에너지 보충이 됩니다.',
+            bad: '담백하고 부담 없는 볶음밥은 속이 편한 무난한 선택입니다.'
+        }
+    },
 
     // 일식 메뉴
-    { name: '초밥', category: '일식', great: 10, good: 9, normal: 8, tired: 7, bad: 6 },
-    { name: '라멘', category: '일식', great: 9, good: 9, normal: 8, tired: 10, bad: 9 },
-    { name: '돈카츠', category: '일식', great: 9, good: 10, normal: 8, tired: 7, bad: 6 },
-    { name: '우동', category: '일식', great: 7, good: 8, normal: 9, tired: 9, bad: 8 },
+    {
+        name: '초밥', category: '일식', great: 10, good: 9, normal: 8, tired: 7, bad: 6,
+        moodReasons: {
+            great: '신선한 회와 밥의 조합! 기분 좋은 날엔 자신에게 주는 작은 사치입니다.',
+            good: '깔끔하고 정갈한 초밥이 좋은 기분에 품격을 더해줍니다.',
+            normal: '다양한 종류의 초밥으로 선택의 즐거움을 느낄 수 있습니다.',
+            tired: '소화가 잘 되는 생선 단백질이지만, 양이 적어 에너지 보충엔 아쉬울 수 있습니다.',
+            bad: '기분이 안 좋을 때 비싼 초밥은 오히려 스트레스가 될 수 있습니다.'
+        }
+    },
+    {
+        name: '라멘', category: '일식', great: 9, good: 9, normal: 8, tired: 10, bad: 9,
+        moodReasons: {
+            great: '진한 돈코츠 국물의 깊은 맛이 행복한 기분을 더 풍성하게 합니다.',
+            good: '쫄깃한 면과 진한 국물의 조화가 좋은 기분에 든든함을 더해줍니다.',
+            normal: '뜨끈한 라멘 한 그릇은 평범한 점심을 특별하게 만들어줍니다.',
+            tired: '진한 국물의 나트륨이 일시적으로 활력을 주고, 뜨거운 음식이 몸을 깨워줍니다.',
+            bad: '뜨끈하고 진한 국물 한 모금이 지친 마음을 녹여주는 힐링 푸드입니다.'
+        }
+    },
+    {
+        name: '돈카츠', category: '일식', great: 9, good: 10, normal: 8, tired: 7, bad: 6,
+        moodReasons: {
+            great: '바삭한 돈카츠의 경쾌한 식감이 좋은 기분과 완벽하게 어울립니다.',
+            good: '두툼한 고기와 바삭한 튀김옷의 만족스러운 한 끼! 기분 좋은 날의 보상입니다.',
+            normal: '든든한 돈카츠는 오후를 버틸 에너지를 충분히 제공합니다.',
+            tired: '튀김이라 소화에 부담이 있을 수 있지만, 높은 칼로리가 에너지를 줍니다.',
+            bad: '기분이 안 좋을 때 기름진 튀김은 속을 불편하게 할 수 있습니다.'
+        }
+    },
+    {
+        name: '우동', category: '일식', great: 7, good: 8, normal: 9, tired: 9, bad: 8,
+        moodReasons: {
+            great: '쫄깃한 면과 깔끔한 국물이 좋은 기분에 담백한 만족감을 줍니다.',
+            good: '부드럽고 따뜻한 우동이 편안한 기분을 이어가게 해줍니다.',
+            normal: '심플하고 깔끔한 우동은 부담 없는 일상적인 점심으로 적합합니다.',
+            tired: '부드러운 면과 따뜻한 국물이 소화에 부담 없이 에너지를 보충해줍니다.',
+            bad: '따뜻하고 부드러운 우동은 자극 없이 속을 편안하게 달래줍니다.'
+        }
+    },
 
     // 양식 메뉴
-    { name: '파스타', category: '양식', great: 9, good: 10, normal: 8, tired: 6, bad: 5 },
-    { name: '피자', category: '양식', great: 10, good: 10, normal: 9, tired: 7, bad: 8 },
-    { name: '스테이크', category: '양식', great: 10, good: 9, normal: 7, tired: 6, bad: 4 },
-    { name: '햄버거', category: '양식', great: 9, good: 9, normal: 10, tired: 8, bad: 9 },
+    {
+        name: '파스타', category: '양식', great: 9, good: 10, normal: 8, tired: 6, bad: 5,
+        moodReasons: {
+            great: '향긋한 올리브오일과 풍부한 맛의 파스타가 특별한 기분을 완성합니다.',
+            good: '다양한 소스와 토핑 선택의 즐거움이 좋은 기분을 더 업그레이드해줍니다.',
+            normal: '이탈리안 정통 맛이 평범한 점심에 이국적인 변화를 줍니다.',
+            tired: '크림 소스의 높은 칼로리가 오히려 식후 졸음을 유발할 수 있습니다.',
+            bad: '기분이 안 좋을 때는 크림/오일 파스타가 속에 부담이 될 수 있습니다.'
+        }
+    },
+    {
+        name: '피자', category: '양식', great: 10, good: 10, normal: 9, tired: 7, bad: 8,
+        moodReasons: {
+            great: '치즈가 쭈욱 늘어나는 피자! 기분 좋은 날 함께 나눠 먹으면 행복이 배가됩니다.',
+            good: '토핑의 다양한 맛과 식감이 좋은 기분에 즐거움을 더해줍니다.',
+            normal: '누구나 좋아하는 피자는 실패 확률 제로의 안전한 선택입니다.',
+            tired: '빠르게 주문하고 간편하게 먹을 수 있어 피곤할 때 편리합니다.',
+            bad: '치즈의 트립토판 성분이 세로토닌 생성을 도와 기분 개선에 도움이 됩니다.'
+        }
+    },
+    {
+        name: '스테이크', category: '양식', great: 10, good: 9, normal: 7, tired: 6, bad: 4,
+        moodReasons: {
+            great: '최고의 기분엔 최고의 메뉴! 육즙 가득한 스테이크로 자신에게 보상하세요.',
+            good: '좋은 기분을 더 특별하게 만들어줄 고급스러운 한 끼입니다.',
+            normal: '평범한 점심으로는 다소 과하지만, 단백질 보충엔 탁월합니다.',
+            tired: '소화에 시간이 오래 걸려 피곤할 때는 오히려 에너지를 뺏길 수 있습니다.',
+            bad: '비용과 소화 부담이 있어 기분이 안 좋을 때는 부적합할 수 있습니다.'
+        }
+    },
+    {
+        name: '햄버거', category: '양식', great: 9, good: 9, normal: 10, tired: 8, bad: 9,
+        moodReasons: {
+            great: '육즙 터지는 패티와 신선한 채소의 조합이 기분 좋은 날을 더 맛있게 합니다.',
+            good: '간편하면서도 만족스러운 햄버거가 좋은 기분에 든든함을 더합니다.',
+            normal: '빠르고 든든하고 맛있는 햄버거는 평범한 점심의 정석입니다.',
+            tired: '빠르게 주문하고 한 손으로 먹을 수 있어 피곤할 때 효율적입니다.',
+            bad: '고칼로리 음식이 일시적으로 쾌감을 주어 기분 전환에 도움이 됩니다.'
+        }
+    },
 
     // 분식 메뉴
-    { name: '떡볶이', category: '분식', great: 8, good: 9, normal: 10, tired: 7, bad: 8 },
-    { name: '김밥', category: '분식', great: 7, good: 8, normal: 10, tired: 8, bad: 7 },
-    { name: '라면', category: '분식', great: 7, good: 8, normal: 9, tired: 10, bad: 10 },
-    { name: '순대', category: '분식', great: 7, good: 8, normal: 9, tired: 8, bad: 7 },
+    {
+        name: '떡볶이', category: '분식', great: 8, good: 9, normal: 10, tired: 7, bad: 8,
+        moodReasons: {
+            great: '매콤달콤한 떡볶이의 중독성 있는 맛이 좋은 기분을 더 즐겁게 합니다.',
+            good: '쫄깃한 떡과 매콤한 소스의 궁합이 좋은 기분에 활력을 더합니다.',
+            normal: '가볍게 즐기기 좋은 떡볶이는 일상 속 소확행(작지만 확실한 행복)입니다.',
+            tired: '매운맛이 일시적으로 각성 효과를 주지만, 과식하면 속이 부담될 수 있습니다.',
+            bad: '매운 맛의 캡사이신이 엔도르핀을 분비시켜 스트레스 해소에 도움이 됩니다.'
+        }
+    },
+    {
+        name: '김밥', category: '분식', great: 7, good: 8, normal: 10, tired: 8, bad: 7,
+        moodReasons: {
+            great: '한 줄에 다양한 재료가 담긴 김밥은 기분 좋은 나들이에 어울립니다.',
+            good: '간편하면서도 영양 균형이 좋은 김밥이 좋은 기분을 가볍게 유지시켜줍니다.',
+            normal: '가장 부담 없고 실용적인 점심! 어디서나 쉽게 구할 수 있는 만능 메뉴입니다.',
+            tired: '별도의 조리 대기 시간 없이 바로 먹을 수 있어 피곤할 때 편리합니다.',
+            bad: '가볍고 속이 편해서 기분이 좋지 않을 때도 부담 없이 먹을 수 있습니다.'
+        }
+    },
+    {
+        name: '라면', category: '분식', great: 7, good: 8, normal: 9, tired: 10, bad: 10,
+        moodReasons: {
+            great: '기분 좋은 날 라면보다 더 좋은 선택이 있지만, 라면만의 소박한 매력이 있습니다.',
+            good: '간편하게 즐기는 라면 한 그릇이 좋은 기분에 소소한 행복을 더합니다.',
+            normal: '빠르고 저렴하고 맛있는 라면은 가성비 최고의 점심 메뉴입니다.',
+            tired: '뜨거운 국물과 매콤한 맛이 즉각적으로 몸을 깨우고 활력을 줍니다.',
+            bad: '한국인의 소울 푸드 라면! 매콤한 국물이 스트레스를 잊게 해주는 위안의 음식입니다.'
+        }
+    },
+    {
+        name: '순대', category: '분식', great: 7, good: 8, normal: 9, tired: 8, bad: 7,
+        moodReasons: {
+            great: '쫀득한 순대의 독특한 식감이 좋은 기분에 재미를 더합니다.',
+            good: '순대에 풍부한 철분이 건강한 하루를 돕고, 독특한 맛이 만족감을 줍니다.',
+            normal: '간편하게 즐기는 순대 한 접시는 부담 없는 일상 메뉴입니다.',
+            tired: '순대의 풍부한 철분과 단백질이 피로 해소와 체력 보충에 도움을 줍니다.',
+            bad: '호불호가 있는 메뉴라 기분이 안 좋을 때 거부감이 들 수 있습니다.'
+        }
+    },
 
     // 기타 메뉴
-    { name: '샐러드', category: '기타', great: 7, good: 8, normal: 7, tired: 5, bad: 4 },
-    { name: '쌀국수', category: '기타', great: 8, good: 9, normal: 9, tired: 8, bad: 7 },
-    { name: '치킨', category: '기타', great: 10, good: 10, normal: 9, tired: 8, bad: 9 },
+    {
+        name: '샐러드', category: '기타', great: 7, good: 8, normal: 7, tired: 5, bad: 4,
+        moodReasons: {
+            great: '가볍고 건강한 샐러드가 좋은 기분에 상쾌함을 더해줍니다.',
+            good: '신선한 채소의 비타민과 미네랄이 기분 좋은 하루의 활력을 유지합니다.',
+            normal: '건강을 챙기고 싶은 날, 가벼운 샐러드는 현명한 선택입니다.',
+            tired: '칼로리가 낮아 피곤할 때 필요한 에너지를 충분히 보충하기 어렵습니다.',
+            bad: '기분이 안 좋을 때 샐러드는 만족감이 부족해 오히려 허전할 수 있습니다.'
+        }
+    },
+    {
+        name: '쌀국수', category: '기타', great: 8, good: 9, normal: 9, tired: 8, bad: 7,
+        moodReasons: {
+            great: '향긋한 허브와 깔끔한 국물이 기분 좋은 날의 이국적인 즐거움을 줍니다.',
+            good: '가볍고 깔끔한 쌀국수가 좋은 기분에 상쾌한 변화를 줍니다.',
+            normal: '담백한 국물과 부드러운 면이 부담 없는 일상적인 점심으로 적합합니다.',
+            tired: '따뜻한 국물이 몸을 데우고, 가벼운 면이 소화 부담 없이 에너지를 줍니다.',
+            bad: '맑고 깔끔한 국물이 속을 편안하게 하지만, 강한 위안감은 부족할 수 있습니다.'
+        }
+    },
+    {
+        name: '치킨', category: '기타', great: 10, good: 10, normal: 9, tired: 8, bad: 9,
+        moodReasons: {
+            great: '바삭한 치킨은 축하와 기쁨의 상징! 좋은 날엔 치킨이 국룰입니다.',
+            good: '바삭하고 육즙 가득한 치킨이 좋은 기분을 최고의 기분으로 끌어올립니다.',
+            normal: '언제 먹어도 맛있는 치킨은 실패 없는 만능 점심 메뉴입니다.',
+            tired: '고단백 닭고기가 에너지를 보충해주고, 맛의 만족감이 기운을 북돋웁니다.',
+            bad: '치킨의 바삭한 식감과 풍부한 맛이 일시적으로 기분을 전환시켜줍니다.'
+        }
+    },
 ];
 
 // ========================================
@@ -132,13 +367,14 @@ function recommendMenu(mood, recentFoods) {
 
 /**
  * 추천 이유를 생성하는 함수
+ * 메뉴 데이터에 저장된 기분별 상세 근거를 활용합니다
  * @param {string} mood - 사용자의 기분
  * @param {Object} menu - 선택된 메뉴 정보
  * @param {Array} recentFoods - 최근에 먹은 음식 목록
- * @returns {string} - 추천 이유 문장
+ * @returns {Object} - 추천 이유 정보 (요약 메시지와 상세 근거)
  */
 function generateReason(mood, menu, recentFoods) {
-    // 기분별 메시지
+    // 기분별 한 줄 요약 메시지
     const moodMessages = {
         great: '기분이 아주 좋으시니 맛있는',
         good: '좋은 기분에 어울리는',
@@ -157,13 +393,37 @@ function generateReason(mood, menu, recentFoods) {
         기타: '특별한'
     };
 
+    // 기분별 점수 라벨 (10점 만점 기준)
+    const moodLabels = {
+        great: '기분 최고',
+        good: '기분 좋음',
+        normal: '보통',
+        tired: '피곤함',
+        bad: '기분 나쁨'
+    };
+
     // 최근 음식을 피했다는 메시지 추가 여부
     let avoidMessage = '';
     if (recentFoods.length > 0) {
-        avoidMessage = ` 최근에 드신 ${recentFoods.slice(0, 2).join(', ')}와는 다른 메뉴로 골라봤어요.`;
+        avoidMessage = `최근에 드신 ${recentFoods.slice(0, 2).join(', ')}와는 다른 메뉴로 골라봤어요.`;
     }
 
-    return `${moodMessages[mood]} ${categoryMessages[menu.category]} 메뉴를 추천드려요!${avoidMessage} 오늘 점심으로 딱이에요!`;
+    // 요약 메시지 생성
+    const summary = `${moodMessages[mood]} ${categoryMessages[menu.category]} 메뉴를 추천드려요!`;
+
+    // 메뉴에 저장된 기분별 상세 추천 근거 가져오기
+    const detailedReason = menu.moodReasons ? menu.moodReasons[mood] : '';
+
+    // 기분 적합도 점수 (10점 만점)
+    const moodScore = menu[mood];
+
+    return {
+        summary: summary,
+        detailedReason: detailedReason,
+        avoidMessage: avoidMessage,
+        moodScore: moodScore,
+        moodLabel: moodLabels[mood]
+    };
 }
 
 // ========================================
@@ -197,14 +457,47 @@ function handleFormSubmit(event) {
 
 /**
  * 추천 결과를 화면에 표시하는 함수
+ * 요약, 상세 근거, 기분 적합도를 모두 표시합니다
  * @param {Object} recommendation - 추천 메뉴 정보
  */
 function displayResult(recommendation) {
     // 추천 메뉴 이름 표시
     recommendedMenu.textContent = recommendation.name;
 
-    // 추천 이유 표시
-    recommendReason.textContent = recommendation.reason;
+    // 추천 이유 영역에 상세 정보 표시
+    const reason = recommendation.reason;
+
+    // 요약 메시지 표시
+    recommendReason.textContent = reason.summary;
+
+    // 상세 근거 표시
+    const detailedReasonEl = document.getElementById('detailedReason');
+    if (detailedReasonEl) {
+        detailedReasonEl.textContent = reason.detailedReason;
+    }
+
+    // 기분 적합도 점수 표시
+    const moodScoreEl = document.getElementById('moodScore');
+    if (moodScoreEl) {
+        moodScoreEl.textContent = `${reason.moodLabel} 적합도: ${reason.moodScore}/10`;
+    }
+
+    // 기분 적합도 게이지 바 업데이트
+    const moodGaugeFill = document.getElementById('moodGaugeFill');
+    if (moodGaugeFill) {
+        moodGaugeFill.style.width = `${reason.moodScore * 10}%`;
+    }
+
+    // 최근 음식 회피 메시지 표시
+    const avoidMessageEl = document.getElementById('avoidMessage');
+    if (avoidMessageEl) {
+        if (reason.avoidMessage) {
+            avoidMessageEl.textContent = reason.avoidMessage;
+            avoidMessageEl.classList.remove('hidden');
+        } else {
+            avoidMessageEl.classList.add('hidden');
+        }
+    }
 
     // 결과 카드를 보이게 만들기
     resultCard.classList.remove('hidden');
