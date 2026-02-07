@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- 문자 인코딩 설정 (한글 표시를 위해 UTF-8 사용) -->
+    <meta charset="UTF-8">
+    <!-- 모바일 반응형을 위한 뷰포트 설정 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 웹 페이지 제목 -->
+    <title>점심 메뉴 추천해줘!</title>
+    <!-- 외부 CSS 파일 연결 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 전체 컨테이너: 중앙 정렬을 위한 래퍼 -->
+    <div class="container">
+        <!-- 상단 헤더 영역 -->
+        <header>
+            <h1>🍽️ 점심 메뉴 추천해줘!</h1>
+            <p class="subtitle">오늘의 기분과 최근 식사를 알려주세요</p>
+        </header>
+
+        <!-- 메인 콘텐츠 영역 -->
+        <main>
+            <!-- 입력 폼 카드 -->
+            <div class="card">
+                <form id="menuForm">
+                    <!-- 기분 선택 섹션 -->
+                    <div class="form-group">
+                        <label for="mood">오늘의 기분은 어떠신가요?</label>
+                        <select id="mood" name="mood" required>
+                            <option value="">-- 기분을 선택해주세요 --</option>
+                            <option value="great">아주 좋음 😄</option>
+                            <option value="good">좋음 😊</option>
+                            <option value="normal">보통 😐</option>
+                            <option value="tired">피곤함 😫</option>
+                            <option value="bad">나쁨 😞</option>
+                        </select>
+                    </div>
+
+                    <!-- 최근 식사 입력 섹션 -->
+                    <div class="form-group">
+                        <label for="recentFood">최근에 먹은 음식을 알려주세요 (쉼표로 구분)</label>
+                        <input
+                            type="text"
+                            id="recentFood"
+                            name="recentFood"
+                            placeholder="예: 치킨, 피자, 라면"
+                            required
+                        >
+                        <small class="hint">최근 2-3일간 드신 음식을 입력해주세요</small>
+                    </div>
+
+                    <!-- 추천 받기 버튼 -->
+                    <button type="submit" class="btn-primary">
+                        점심 메뉴 추천받기 🎲
+                    </button>
+                </form>
+            </div>
+
+            <!-- 추천 결과 표시 영역 (초기에는 숨김 상태) -->
+            <div id="resultCard" class="card result-card hidden">
+                <h2>오늘의 추천 메뉴</h2>
+
+                <!-- 추천된 메뉴 표시 -->
+                <div class="menu-result">
+                    <div class="menu-icon">🍴</div>
+                    <h3 id="recommendedMenu" class="menu-name"></h3>
+                </div>
+
+                <!-- 추천 이유 설명 -->
+                <div class="reason-box">
+                    <h4>추천 이유</h4>
+                    <p id="recommendReason"></p>
+                </div>
+
+                <!-- 다시 추천받기 버튼 -->
+                <button id="retryBtn" class="btn-secondary">
+                    다시 추천받기 🔄
+                </button>
+            </div>
+        </main>
+
+        <!-- 하단 푸터 -->
+        <footer>
+            <p>맛있는 점심 되세요! 💚</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript 파일 연결 (HTML 로드 후 실행) -->
+    <script src="script.js"></script>
+</body>
+</html>

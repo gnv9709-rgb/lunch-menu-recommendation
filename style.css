@@ -1,0 +1,380 @@
+/* 전역 스타일 초기화 및 기본 설정 */
+* {
+    /* 모든 요소의 기본 여백과 패딩 제거 */
+    margin: 0;
+    padding: 0;
+    /* 패딩과 보더를 너비에 포함 */
+    box-sizing: border-box;
+}
+
+/* 전체 페이지 배경 및 기본 폰트 설정 */
+body {
+    /* 시스템 기본 폰트 사용 (다양한 OS에서 깔끔하게 보임) */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    /* 그라데이션 배경 (연한 주황색에서 연한 핑크색으로) */
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    /* 최소 높이를 화면 전체로 설정 */
+    min-height: 100vh;
+    /* 기본 글자 색상 */
+    color: #333;
+    /* 글자 간격 */
+    line-height: 1.6;
+    /* 부드러운 스크롤 효과 */
+    scroll-behavior: smooth;
+}
+
+/* 메인 컨테이너: 콘텐츠를 중앙에 배치 */
+.container {
+    /* 최대 너비 제한 (큰 화면에서 너무 넓어지지 않도록) */
+    max-width: 600px;
+    /* 좌우 중앙 정렬 */
+    margin: 0 auto;
+    /* 상하 여백 */
+    padding: 2rem 1rem;
+}
+
+/* 헤더 영역 스타일 */
+header {
+    /* 중앙 정렬 */
+    text-align: center;
+    /* 하단 여백 */
+    margin-bottom: 2rem;
+}
+
+/* 메인 제목 스타일 */
+header h1 {
+    /* 글자 크기 */
+    font-size: 2.5rem;
+    /* 글자 색상 (진한 주황색) */
+    color: #ff6b35;
+    /* 하단 여백 */
+    margin-bottom: 0.5rem;
+    /* 텍스트 그림자 효과 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 부제목 스타일 */
+.subtitle {
+    /* 글자 크기 */
+    font-size: 1.1rem;
+    /* 글자 색상 (어두운 회색) */
+    color: #666;
+}
+
+/* 카드 스타일 (폼과 결과 영역에 공통 적용) */
+.card {
+    /* 배경색 (흰색) */
+    background: white;
+    /* 모서리 둥글게 */
+    border-radius: 20px;
+    /* 내부 여백 */
+    padding: 2rem;
+    /* 그림자 효과 (입체감 부여) */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    /* 하단 여백 */
+    margin-bottom: 2rem;
+    /* 부드러운 전환 효과 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 카드에 마우스 올렸을 때 효과 */
+.card:hover {
+    /* 살짝 위로 올라가는 효과 */
+    transform: translateY(-5px);
+    /* 그림자 강화 */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* 폼 그룹 (각 입력 필드 영역) */
+.form-group {
+    /* 하단 여백 */
+    margin-bottom: 1.5rem;
+}
+
+/* 레이블 스타일 */
+.form-group label {
+    /* 블록으로 표시 (전체 너비 차지) */
+    display: block;
+    /* 하단 여백 */
+    margin-bottom: 0.5rem;
+    /* 글자 굵기 */
+    font-weight: 600;
+    /* 글자 색상 */
+    color: #444;
+    /* 글자 크기 */
+    font-size: 1rem;
+}
+
+/* 입력 필드 및 선택 박스 공통 스타일 */
+.form-group select,
+.form-group input {
+    /* 전체 너비 사용 */
+    width: 100%;
+    /* 내부 여백 */
+    padding: 0.75rem;
+    /* 테두리 */
+    border: 2px solid #e0e0e0;
+    /* 모서리 둥글게 */
+    border-radius: 10px;
+    /* 글자 크기 */
+    font-size: 1rem;
+    /* 폰트 상속 */
+    font-family: inherit;
+    /* 부드러운 전환 효과 */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 입력 필드에 포커스했을 때 */
+.form-group select:focus,
+.form-group input:focus {
+    /* 외곽선 제거 */
+    outline: none;
+    /* 테두리 색상 변경 */
+    border-color: #ff6b35;
+    /* 빛나는 효과 */
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+/* 힌트 텍스트 스타일 */
+.hint {
+    /* 작은 글자 크기 */
+    font-size: 0.85rem;
+    /* 연한 회색 */
+    color: #888;
+    /* 블록으로 표시 */
+    display: block;
+    /* 상단 여백 */
+    margin-top: 0.25rem;
+}
+
+/* 기본 버튼 스타일 (공통) */
+button {
+    /* 전체 너비 사용 */
+    width: 100%;
+    /* 내부 여백 */
+    padding: 1rem;
+    /* 글자 크기 */
+    font-size: 1.1rem;
+    /* 글자 굵기 */
+    font-weight: 600;
+    /* 모서리 둥글게 */
+    border-radius: 10px;
+    /* 테두리 없음 */
+    border: none;
+    /* 마우스 커서 모양 */
+    cursor: pointer;
+    /* 부드러운 전환 효과 */
+    transition: all 0.3s ease;
+    /* 폰트 상속 */
+    font-family: inherit;
+}
+
+/* 주요 버튼 (추천받기 버튼) */
+.btn-primary {
+    /* 배경색 (주황색) */
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+    /* 글자 색상 (흰색) */
+    color: white;
+    /* 그림자 효과 */
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+/* 주요 버튼에 마우스 올렸을 때 */
+.btn-primary:hover {
+    /* 살짝 위로 올라가는 효과 */
+    transform: translateY(-2px);
+    /* 그림자 강화 */
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}
+
+/* 주요 버튼 클릭 시 */
+.btn-primary:active {
+    /* 원래 위치로 돌아감 */
+    transform: translateY(0);
+}
+
+/* 보조 버튼 (다시 추천받기 버튼) */
+.btn-secondary {
+    /* 배경색 (회색 계열) */
+    background: #f5f5f5;
+    /* 글자 색상 */
+    color: #666;
+    /* 상단 여백 */
+    margin-top: 1rem;
+}
+
+/* 보조 버튼에 마우스 올렸을 때 */
+.btn-secondary:hover {
+    /* 배경색 변경 */
+    background: #e0e0e0;
+}
+
+/* 결과 카드 스타일 */
+.result-card {
+    /* 배경색 (연한 초록색 계열) */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    /* 테두리 추가 */
+    border: 3px solid #ff6b35;
+}
+
+/* 숨김 클래스 (초기 상태) */
+.hidden {
+    /* 화면에 표시하지 않음 */
+    display: none;
+}
+
+/* 결과 카드 제목 */
+.result-card h2 {
+    /* 중앙 정렬 */
+    text-align: center;
+    /* 글자 색상 */
+    color: #ff6b35;
+    /* 하단 여백 */
+    margin-bottom: 1.5rem;
+    /* 글자 크기 */
+    font-size: 1.8rem;
+}
+
+/* 메뉴 결과 영역 */
+.menu-result {
+    /* 중앙 정렬 */
+    text-align: center;
+    /* 내부 여백 */
+    padding: 2rem;
+    /* 배경색 */
+    background: white;
+    /* 모서리 둥글게 */
+    border-radius: 15px;
+    /* 하단 여백 */
+    margin-bottom: 1.5rem;
+    /* 그림자 효과 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 메뉴 아이콘 */
+.menu-icon {
+    /* 글자 크기 */
+    font-size: 4rem;
+    /* 하단 여백 */
+    margin-bottom: 1rem;
+    /* 애니메이션 적용 */
+    animation: bounce 1s ease infinite;
+}
+
+/* 튕기는 애니메이션 효과 */
+@keyframes bounce {
+    0%, 100% {
+        /* 원래 위치 */
+        transform: translateY(0);
+    }
+    50% {
+        /* 위로 10px 이동 */
+        transform: translateY(-10px);
+    }
+}
+
+/* 추천 메뉴 이름 */
+.menu-name {
+    /* 글자 크기 */
+    font-size: 2rem;
+    /* 글자 색상 */
+    color: #ff6b35;
+    /* 여백 제거 */
+    margin: 0;
+}
+
+/* 추천 이유 박스 */
+.reason-box {
+    /* 배경색 */
+    background: white;
+    /* 내부 여백 */
+    padding: 1.5rem;
+    /* 모서리 둥글게 */
+    border-radius: 15px;
+    /* 그림자 효과 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 추천 이유 제목 */
+.reason-box h4 {
+    /* 글자 색상 */
+    color: #666;
+    /* 하단 여백 */
+    margin-bottom: 0.5rem;
+    /* 글자 크기 */
+    font-size: 1.1rem;
+}
+
+/* 추천 이유 본문 */
+.reason-box p {
+    /* 글자 색상 */
+    color: #444;
+    /* 줄 간격 */
+    line-height: 1.6;
+    /* 글자 크기 */
+    font-size: 1rem;
+}
+
+/* 푸터 영역 */
+footer {
+    /* 중앙 정렬 */
+    text-align: center;
+    /* 상단 여백 */
+    margin-top: 2rem;
+    /* 글자 색상 */
+    color: #666;
+    /* 글자 크기 */
+    font-size: 0.9rem;
+}
+
+/* 태블릿 크기 (768px 이하)에서의 반응형 스타일 */
+@media (max-width: 768px) {
+    /* 메인 제목 크기 조정 */
+    header h1 {
+        font-size: 2rem;
+    }
+
+    /* 카드 내부 여백 축소 */
+    .card {
+        padding: 1.5rem;
+    }
+
+    /* 추천 메뉴 이름 크기 조정 */
+    .menu-name {
+        font-size: 1.5rem;
+    }
+}
+
+/* 모바일 크기 (480px 이하)에서의 반응형 스타일 */
+@media (max-width: 480px) {
+    /* 전체 컨테이너 여백 축소 */
+    .container {
+        padding: 1rem 0.5rem;
+    }
+
+    /* 메인 제목 크기 조정 */
+    header h1 {
+        font-size: 1.75rem;
+    }
+
+    /* 부제목 크기 조정 */
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    /* 카드 내부 여백 축소 */
+    .card {
+        padding: 1.25rem;
+        border-radius: 15px;
+    }
+
+    /* 메뉴 아이콘 크기 조정 */
+    .menu-icon {
+        font-size: 3rem;
+    }
+
+    /* 추천 메뉴 이름 크기 조정 */
+    .menu-name {
+        font-size: 1.25rem;
+    }
+}
